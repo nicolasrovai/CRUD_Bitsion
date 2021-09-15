@@ -1,0 +1,73 @@
+﻿@model FicticiaSA.Models.Customer
+
+@{
+    ViewData["Title"] = "Crear Nuevo Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Crear</h1>
+
+<h4>Cliente</h4>
+
+
+@if (TempData["DuplicateMessage"] != null)
+{
+    <div class="alert alert-warning alert alert-dismissible fade show" role="alert">
+        @TempData["DeuplicateMessage"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dni" class="control-label"></label>
+                <input asp-for="Dni" class="form-control" />
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <input asp-for="Genre" class="form-control" />
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="IsActive"></label>
+                @Html.CheckBox("Activo", false)
+            </div>
+            <br />
+            <div>
+                <label asp-for="Drives"></label>
+                @Html.CheckBox("Drives", false)
+            </div>
+            <br />
+            <div>
+                <label asp-for="NeedsGlasses"></label>
+                @Html.CheckBox("NeedsGlasses", false)
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-primary">Clientes</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

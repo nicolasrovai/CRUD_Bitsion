@@ -1,0 +1,66 @@
+﻿@model FicticiaSA.Models.Customer
+
+@{
+    ViewData["Title"] = "Eliminar Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar Cliente</h1>
+<br />
+<br />
+<br />
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="DeleteCustomer">
+
+            <input type="hidden" asp-for="Id" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" disabled />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dni" class="control-label"></label>
+                <input asp-for="Dni" class="form-control" disabled />
+                <span asp-validation-for="Dni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" disabled />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <input asp-for="Genre" class="form-control" disabled />
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="IsActive"></label>
+                @Html.CheckBox("Activo", false)
+            </div>
+            <br />
+            <div>
+                <label asp-for="Drives"></label>
+                @Html.CheckBox("Drives", false)
+            </div>
+            <br />
+            <div>
+                <label asp-for="NeedsGlasses"></label>
+                @Html.CheckBox("NeedsGlasses", false)
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Eliminar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Clientes</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
